@@ -28,7 +28,7 @@ def get_filters():
             print('You selected {}'.format(city))
             break    
 
-    # get user input for month (all, january, february, ... , june)
+    # get user input for the month (all, january, february, ... , june)
     while True:
         month = input('Enter a month, you can select any month between January and June. Enter All to select all months: ')
         if month.lower() not in MONTHS:
@@ -38,7 +38,7 @@ def get_filters():
             print('You selected {}'.format(month))
             break
     
-    # get user input for day of week (all, monday, tuesday, ... sunday)
+    # get user input for the day of week (all, monday, tuesday, ... sunday)
     while True:
         day = input('Enter a day, you can select any day between Monday and Sunday. Enter All to select all days: ')
         if day.lower() not in DAYS:
