@@ -8,6 +8,12 @@ CITY_DATA = { 'chicago': 'chicago.csv',
 MONTHS = ('all', 'january', 'february', 'march', 'april', 'may', 'june')
 DAYS = ('all', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday')
 
+def line_seperator():
+    """
+    Prints a line of semi-colons as a seperation line in the termonal output.
+    """
+    print('-'*40)
+
 def get_filters():
     """
     Asks user to specify a city, month, and day to analyze.
@@ -48,7 +54,7 @@ def get_filters():
             print('You selected {}'.format(day))
             break
 
-    print('-'*40)
+    line_seperator()
     return city, month, day
 
 
@@ -108,7 +114,7 @@ def time_stats(df):
     print('The most common hour of travel is {}:00.'.format(common_start_hour))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    line_seperator()
 
 
 def station_stats(df):
@@ -130,7 +136,7 @@ def station_stats(df):
     print('The most frequent combination of start and end station is {} with {} beginnings and endings'.format(start_end_station.index[0], start_end_station[0]))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    line_seperator()
 
 
 def trip_duration_stats(df):
@@ -147,7 +153,7 @@ def trip_duration_stats(df):
     print('The mean time travelled is {}'.format(df['Time Spent'].mean()))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    line_seperator()
 
 
 def user_stats(df):
@@ -164,8 +170,7 @@ def user_stats(df):
     # Display counts of gender
     try:
         gender_type_counts = df['Gender'].value_counts()
-        print('The counts of gender types in the data are')
-        print(gender_type_counts)
+        print('The counts of gender types in the data are: {}'.format(gender_type_counts))
     except KeyError as e:
         print('{} does not exist in this dataset and hence no analysis has been done.'.format(e))
         
@@ -179,7 +184,7 @@ def user_stats(df):
         print('{} does not exist in this dataset and hence no analysis has been done.'.format(e))
     
     print("\nThis took %s seconds." % (time.time() - start_time))
-    print('-'*40)
+    line_seperator()
 
 def user_raw_output(df):
     """Displays statistics on the total and average trip duration."""
