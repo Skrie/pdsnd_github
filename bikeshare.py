@@ -164,8 +164,7 @@ def user_stats(df):
     # Display counts of gender
     try:
         gender_type_counts = df['Gender'].value_counts()
-        print('The counts of gender types in the data are')
-        print(gender_type_counts)
+        print('The counts of gender types in the data are: {}'.format(gender_type_counts))
     except KeyError as e:
         print('{} does not exist in this dataset and hence no analysis has been done.'.format(e))
         
